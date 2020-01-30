@@ -1,0 +1,95 @@
+body
+    background-color: #777777
+
+.nav
+    position: fixed
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 15px 30px
+    z-index: 90
+
+.nav__logo
+    font-family: 'Lato', sans-serif
+    font-size: 1.6rem
+    font-weight: 900
+    text-decoration: none
+    color: $white
+
+.nav__burger
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 32px
+    height: 24px
+    background-color: transparent
+    border: none
+    z-index: 99
+    &-line
+        width: 32px
+        height: 4px
+        background-color: $white
+        border-radius: 3px
+        transition: transform .4s
+    &.active &-line:first-child
+        transform: translateY(10px) rotate(225deg)
+    &.active &-line:nth-child(2)
+        transform: scaleX(0)
+    &.active &-line:last-child
+        transform: translateY(-10px) rotate(-225deg)
+    // translateY((height-lineHeight)/2)
+
+.nav__list
+    position: fixed
+    top: 0
+    left: 0
+    transform: translateX(-100%)
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 200px
+    height: 100vh
+    background-color: $black
+    overflow-y: auto
+    -webkit-overflow-scrolling:touch
+    transition: transform .4s
+    &.active
+        transform: translateX(0)
+
+.nav__overlay
+    position: fixed
+    top: 0
+    right: 0
+    transform: translate(100%)
+    width: calc(100% - 200px)
+    height: 100vh
+    background-color: $primary-color
+    transition: transform .4s
+    &.active
+        transform: translate(0)
+
+.nav__item
+    width: 100%
+    line-height: 2.5em
+
+.nav__item--logo
+    width: 100%
+    padding: 15px 0
+    text-align: center
+    color: $primary-color
+
+.nav__link
+    display: block
+    font-family: 'Lato', sans-serif
+    font-weight: 700
+    font-size: 1.2rem
+    text-align: center
+    text-transform: uppercase
+    text-decoration: none
+    color: $white
+
+.nav__icons
+    display: none
