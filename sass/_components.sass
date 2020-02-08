@@ -1,0 +1,92 @@
+/* Buttons */
+.btn
+    display: block
+    color: $white
+    background-color: $primary-color
+    font-family: 'Lato', sans-serif
+    font-size: .9rem
+    font-weight: 700
+    text-align: center
+    text-transform: uppercase
+    text-decoration: none
+    padding: 10px 25px
+    border-radius: 30px
+    box-shadow: 0 0 10px $black
+    cursor: pointer
+    transition: color .3s, background-color .3s
+
+.btn--secondary
+    color: $black
+    background-color: $white
+
+@media (min-width: 1024px)
+    .btn
+        font-size: 1rem
+        padding: 12px 30px
+        &:hover
+            color: $white
+            background-color: $black
+
+
+/* Text */
+
+.heading
+    font-family: 'Peace Sans', sans-serif
+    font-size: 2.3rem
+    color: $heading-color
+    margin-bottom: 25px
+
+.subheading
+    font-family: 'Open Sans', sans-serif
+    font-weight: 800
+    font-size: 1.4rem
+    color: $subheading-color
+
+.text
+    font-size: 0.85rem
+    line-height: 150%
+    font-family: 'Open Sans', sans-serif
+    color: $text-color
+
+
+@media (min-width: 1024px)
+    .heading
+        font-size: 3rem
+
+    .subheading
+        font-size: 1.6rem
+
+    .text
+        font-size: 0.9rem
+
+@media (min-width: 1260px)
+    .heading
+        font-size: 3.5rem
+        margin-bottom: 40px
+
+    .subheading
+        font-size: 1.7rem
+
+    .text
+        font-size: 1rem
+
+@media (min-width: 1600px)
+    .heading
+        font-size: 3.7rem
+
+    .subheading
+        font-size: 1.8rem
+
+    .text
+        font-size: 1.1rem
+
+
+
+/* Other elements */
+
+.square
+    background-color: $primary-color
+    transform: translate(-50%,-50%) rotate(45deg)
+
+.square--secondary
+    background-color: $black

@@ -1,0 +1,84 @@
+.services
+    position: relative
+    background-color: $section-color
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 50px 7% 20px
+    z-index: -2
+
+.service
+    display: flex
+    align-items: flex-start
+    margin-bottom: 30px
+
+.service__img-wrapper
+    position: relative
+    flex-shrink: 0
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    background-color: $primary-color
+    margin-right: 15px
+
+.service__img
+    position: absolute
+    display: block
+    width: 45%
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+
+.service__title
+    line-height: 50px
+
+.services__square
+    display: none
+
+@media (min-width: 640px)
+    .services__wrapper
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+    
+    .service
+        flex-basis: 47%
+        
+
+@media (min-width: 1024px)
+    .services            
+        padding: 70px 7% 20px
+    
+    .services__heading
+        margin-bottom: 40px
+
+    .service
+        flex-basis: 30%
+        margin-bottom: 80px
+
+    .services__square
+        display: block
+        position: absolute
+        width: 8vw
+        height: 8vw
+        top: 50%
+        left: -2%
+
+@media (min-width: 1260px)
+    .services
+        padding: 100px 12% 40px
+
+    .services__heading
+        margin-bottom: 60px
+
+    .service__img-wrapper
+        width: 65px
+        height: 65px
+
+    .service__title
+        line-height: 60px
+
+    .services__square
+        left: 0%
+        max-width: 150px
+        max-height: 150px

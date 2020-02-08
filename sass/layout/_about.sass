@@ -1,0 +1,77 @@
+.about
+    position: relative
+    overflow: hidden
+    padding: 50px 7%
+    
+.about__wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.about__text
+    text-align: center
+    margin-bottom: 35px
+    
+.about__square
+    position: absolute
+    width: 80vw
+    height: 80vw
+    top: 0
+    left: 130%
+    z-index: -1
+
+.about__img
+    display: none
+
+@media (min-width: 640px)
+    .about
+        display: flex
+        align-items: center
+    
+    .about__wrapper
+        align-items: flex-start
+        
+    .about__text
+        text-align: left
+        margin-left: 10px
+        margin-right: 10px
+
+    .about__img
+        display: block
+        max-width: 50%
+
+    .about__square
+        left: 100%
+
+@media (min-width: 1024px)
+    .about            
+        align-items: flex-start
+        padding: 70px 7% 30px
+    
+    .about__img
+        max-width: 60%
+
+    .about__square
+        width: 70vw
+        height: 70vw
+        left: 85%
+
+@media (min-width: 1260px)
+    .about            
+        padding: 100px 12% 60px
+
+    .about__text
+        margin-right: 50px
+        margin-bottom: 60px
+
+    .about__square
+        width: 65vw
+        height: 65vw
+        left: 80%
+
+@media (min-width: 1600px)
+    .about__square
+        width: 60vw
+        max-width: 1000px
+        height: 60vw
+        max-height: 1000px
