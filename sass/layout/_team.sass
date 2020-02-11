@@ -1,5 +1,147 @@
 .team
+    --img-wrapper-size: 60vw
+    background-color: $section-color
+    padding-bottom: 30px
+
+.team__heading
+    text-align: center
+    padding: 50px 20px 0
+
+.team__carousel-wrapper
     position: relative
-    height: 50vh
-    background-color: #888
-    z-index: -2
+    display: flex
+    justify-content: center
+    align-items: center
+    height: calc(var(--img-wrapper-size)*1.6)
+    max-height: 730px
+
+.team__carousel-item
+    position: absolute
+    cursor: pointer
+    transition: .6s
+    &--middle
+        transform: translateX(0) scale(1)
+        opacity: 1
+        z-index: 1
+    &--middle .team__person-job-wrapper
+        opacity: 1
+    &--left
+        transform: translateX(-90%) scale(.7)
+        opacity: .7
+    &--left .team__person-job-wrapper
+        opacity: 0
+    &--right
+        transform: translateX(90%) scale(.7)
+        opacity: .7
+    &--right .team__person-job-wrapper
+        opacity: 0
+    &--hidden
+        transform: translateX(0) scale(.7)
+        opacity: 0
+
+
+.team__img-wrapper
+    position: relative
+    width: var(--img-wrapper-size)
+    height: var(--img-wrapper-size)
+    max-width: 400px
+    max-height: 400px
+    border: 12px solid $white
+    transform: rotate(45deg)
+    overflow: hidden
+    box-shadow: 0 0 20px rgba(0,0,0,.3)
+
+.team__img
+    width: 145%
+    position: absolute
+    top: -25%
+    left: -25%
+    transform: rotate(-45deg)
+
+
+.team__desc-wrapper
+    position: relative
+    left: 10%
+    text-align: center
+    color: $white
+
+.team__person-name-wrapper
+    width: 80%
+    background-color: $team-name-color
+    transform: skew(35deg)
+
+.team__person-name
+    font-family: 'Open Sans'
+    font-weight: 700
+    font-size: 1rem
+    line-height: 2em
+    transform: skew(-35deg)
+
+.team__person-job-wrapper
+    position: absolute
+    width: 50%
+    top: 90%
+    left: 20%
+    background-color: $primary-color
+    transform: skew(35deg)
+
+.team__person-job
+    display: block
+    font-family: 'Open Sans'
+    font-style: italic
+    font-size: .9rem
+    line-height: 1.5em
+    transform: skew(-35deg)
+
+
+.team__prev-arrow, .team__next-arrow
+    display: none
+
+
+@media (min-width: 530px)
+    .team
+        --img-wrapper-size: 32vw
+
+@media (min-width: 1024px)
+    .team
+        --img-wrapper-size: 25vw
+
+    .team__prev-arrow, .team__next-arrow
+        display: block
+        position: absolute
+        top: 50%
+        left: 7%
+        transform: translateY(-50%)
+        width: 0
+        height: 0
+        border-left: none
+        border-top: 40px solid transparent
+        border-bottom: 40px solid transparent
+        border-right: 40px solid $team-arrow-color
+        background-color: transparent
+        cursor: pointer
+
+    .team__next-arrow
+        top: 50%
+        right: 7%
+        left: auto
+        transform: translateY(-50%)
+        border-right: none
+        border-left: 40px solid $team-arrow-color
+
+@media (min-width: 1260px)
+    .team
+        --img-wrapper-size: 23vw
+
+    .team__img-wrapper
+        border: 15px solid $white
+
+    .team__person-name
+        font-size: 1.5rem
+
+    .team__person-job
+        font-size: 1.3rem
+        line-height: 1.5em
+
+    .team__prev-arrow, .team__next-arrow
+        border-width: 60px
