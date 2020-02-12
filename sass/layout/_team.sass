@@ -17,8 +17,9 @@
 
 .team__carousel-item
     position: absolute
-    cursor: pointer
     transition: .6s
+
+.item
     &--middle
         transform: translateX(0) scale(1)
         opacity: 1
@@ -36,7 +37,7 @@
     &--right .team__person-job-wrapper
         opacity: 0
     &--hidden
-        transform: translateX(0) scale(.7)
+        transform: translateX(0) scale(0)
         opacity: 0
 
 
@@ -79,11 +80,12 @@
 
 .team__person-job-wrapper
     position: absolute
-    width: 50%
     top: 90%
-    left: 20%
+    left: 42%
+    padding: 0 12%
     background-color: $primary-color
-    transform: skew(35deg)
+    transform: skew(35deg) translateX(-50%) 
+    transition: opacity .6s
 
 .team__person-job
     display: block
@@ -120,6 +122,9 @@
         border-right: 40px solid $team-arrow-color
         background-color: transparent
         cursor: pointer
+        transition: opacity .2s
+        &:hover
+            opacity: .8
 
     .team__next-arrow
         top: 50%

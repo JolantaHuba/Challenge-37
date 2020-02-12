@@ -1094,45 +1094,44 @@ ul, ol {
 
 .team__carousel-item {
   position: absolute;
-  cursor: pointer;
   -webkit-transition: .6s;
   transition: .6s;
 }
 
-.team__carousel-item--middle {
+.item--middle {
   -webkit-transform: translateX(0) scale(1);
           transform: translateX(0) scale(1);
   opacity: 1;
   z-index: 1;
 }
 
-.team__carousel-item--middle .team__person-job-wrapper {
+.item--middle .team__person-job-wrapper {
   opacity: 1;
 }
 
-.team__carousel-item--left {
+.item--left {
   -webkit-transform: translateX(-90%) scale(0.7);
           transform: translateX(-90%) scale(0.7);
   opacity: .7;
 }
 
-.team__carousel-item--left .team__person-job-wrapper {
+.item--left .team__person-job-wrapper {
   opacity: 0;
 }
 
-.team__carousel-item--right {
+.item--right {
   -webkit-transform: translateX(90%) scale(0.7);
           transform: translateX(90%) scale(0.7);
   opacity: .7;
 }
 
-.team__carousel-item--right .team__person-job-wrapper {
+.item--right .team__person-job-wrapper {
   opacity: 0;
 }
 
-.team__carousel-item--hidden {
-  -webkit-transform: translateX(0) scale(0.7);
-          transform: translateX(0) scale(0.7);
+.item--hidden {
+  -webkit-transform: translateX(0) scale(0);
+          transform: translateX(0) scale(0);
   opacity: 0;
 }
 
@@ -1184,12 +1183,14 @@ ul, ol {
 
 .team__person-job-wrapper {
   position: absolute;
-  width: 50%;
   top: 90%;
-  left: 20%;
+  left: 42%;
+  padding: 0 12%;
   background-color: #bc2e3a;
-  -webkit-transform: skew(35deg);
-          transform: skew(35deg);
+  -webkit-transform: skew(35deg) translateX(-50%);
+          transform: skew(35deg) translateX(-50%);
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
 }
 
 .team__person-job {
@@ -1231,6 +1232,11 @@ ul, ol {
     border-right: 40px solid #424240;
     background-color: transparent;
     cursor: pointer;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+  }
+  .team__prev-arrow:hover, .team__next-arrow:hover {
+    opacity: .8;
   }
   .team__next-arrow {
     top: 50%;
