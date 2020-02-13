@@ -1,0 +1,222 @@
+.clients
+    position: relative
+    padding: 50px 7% 70px
+ 
+.clients__heading
+    text-align: center
+    margin-bottom: 50px
+    
+.clients__content-wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0 auto
+
+.clients__main-img-wrapper
+    position: relative
+    width: 40vw
+    height: 40vw
+    border: 8px solid $white
+    box-shadow: 0 0 20px rgba(0,0,0,.3)
+    overflow: hidden
+    transform: rotate(45deg)
+
+.clients__main-img
+    position: absolute
+    width: 150%
+    top: -25%
+    left: -25%
+    transform: rotate(-45deg)
+
+.clients__quotes-wrapper
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.clients__quote
+    position: relative
+    font-style: italic
+    text-align: center
+    margin: 40px 0
+    &::before
+        position: absolute
+        top: -2em
+        left: -0.5em
+        width: 28px
+        height: 28px
+        content: ''
+        background: url('../images/quote.png')
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
+.clients__quote-author
+    display: block
+    font-style: normal
+    font-weight: 700
+    margin-top: 10px
+
+.clients__thumbnails
+    display: flex
+    justify-content: space-around
+    width: 80%
+
+.clients__img-wrapper
+    position: relative
+    width: 50px
+    height: 50px
+    border: 4px solid $white
+    box-shadow: 0 0 20px rgba(0,0,0,.3)
+    overflow: hidden
+    transform: rotate(45deg)
+    cursor: pointer
+    &.active
+        border-color: $primary-color
+
+.clients__img
+    position: absolute
+    width: 150%
+    top: -25%
+    left: -25%
+    transform: rotate(-45deg)
+
+
+@media (min-width: 530px)
+
+    .clients__heading
+        text-align: left
+        margin-bottom: 20px
+        text-indent: 10%
+
+    .clients__content-wrapper
+        flex-direction: row
+        justify-content: space-between
+        width: 90%
+
+    .clients__main-img-wrapper
+        width: 25vw
+        height: 25vw
+
+    .clients__quotes-wrapper
+        flex-basis: 50%
+        align-items: flex-start
+
+    .clients__quote
+        text-align: left
+        &::before
+            top: -0.7em
+            left: -3em
+
+    .clients__thumbnails
+        width: 100%
+
+    .clients__square-right
+        position: absolute
+        top: 0
+        left: 100%
+        width: 30vw
+        height: 30vw
+        z-index: -1
+
+    .clients__square-left
+        position: absolute
+        top: 55%
+        left: 0
+        width: 40vw
+        height: 40vw
+
+@media (min-width: 768px)
+    .clients__main-img-wrapper
+        width: 20vw
+        height: 20vw
+
+    .clients__quotes-wrapper
+        flex-basis: 60%
+
+    .clients__thumbnails
+        width: 65%
+
+@media (min-width: 1024px)
+    .clients
+        padding: 70px 7%
+
+    .clients__content-wrapper
+        width: 85%
+        margin: 50px auto
+
+    .clients__main-img-wrapper
+        border-width: 12px
+        width: 22vw
+        height: 22vw
+        margin-left: -5%
+
+    .clients__quotes-wrapper
+        flex-basis: 60%
+
+    .clients__quote
+        margin: 70px 0
+        &::before
+            top: -1em
+            left: -3.5em
+            width: 40px
+            height: 40px
+
+    .clients__quote-author
+        margin-top: 20px
+
+    .clients__thumbnails
+        width: 65%
+
+    .clients__square-left
+        width: 45vw
+        height: 45vw
+
+
+@media (min-width: 1260px)
+    .clients
+        padding: 100px 7%
+    
+    .clients__heading
+        margin-bottom: 100px
+        text-indent: 15%
+
+    .clients__content-wrapper
+        width: 75%
+
+    .clients__quote
+        &::before
+            top: -1.6em
+            left: -4.5em
+            width: 60px
+            height: 60px
+
+    .clients__square-left
+        left: -2%
+
+    .clients__main-img-wrapper
+        border-width: 15px
+        width: 18vw
+        height: 18vw
+
+    .clients__thumbnails
+        width: 50%
+
+@media (min-width: 1600px)
+    .clients__heading
+        margin-bottom: 130px
+
+    .clients__quotes-wrapper
+        flex-basis: 55%
+    
+    .clients__main-img-wrapper
+        max-width: 370px
+        max-height: 370px
+
+    .clients__square-left
+        max-width: 720px
+        max-height: 720px
+
+    .clients__square-right
+        max-width: 460px
+        max-height: 460px
