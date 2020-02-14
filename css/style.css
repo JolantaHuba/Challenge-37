@@ -1309,6 +1309,7 @@ ul, ol {
   overflow: hidden;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+  background-color: #ffffff;
 }
 
 .clients__main-img {
@@ -1318,6 +1319,29 @@ ul, ol {
   left: -25%;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+.clients__main-img.active {
+  -webkit-animation: switch .4s;
+          animation: switch .4s;
+}
+
+@-webkit-keyframes switch {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes switch {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .clients__quotes-wrapper {
@@ -1339,6 +1363,12 @@ ul, ol {
   font-style: italic;
   text-align: center;
   margin: 40px 0;
+  height: 150px;
+}
+
+.clients__quote.active {
+  -webkit-animation: switch .4s;
+          animation: switch .4s;
 }
 
 .clients__quote::before {

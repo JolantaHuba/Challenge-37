@@ -64,7 +64,7 @@ const changeSlide = function () {
     });
 
 
-    console.log(newCarousel);
+    // console.log(newCarousel);
 }
 
 carouselItems.forEach(item => {
@@ -73,3 +73,66 @@ carouselItems.forEach(item => {
 
 prevArrow.addEventListener('click', changeSlide);
 nextArrow.addEventListener('click', changeSlide);
+
+// testimonials
+
+const quotes = [{
+        imgSrc: 'images/person4.jpg',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic, id sunt eveniet at accusamus rerum autem unde.',
+        author: 'Jinny Snow, Company CEO',
+    },
+    {
+        imgSrc: 'images/person3.jpg',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic.',
+        author: 'John Snow, Company CTO',
+    },
+    {
+        imgSrc: 'images/person1.jpg',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic, id sunt eveniet at accusamus rerum autem unde. Quas praesentium magnam assumenda quae.',
+        author: 'Jenny Smith, Company CEO',
+    }
+];
+
+const thumbnails = document.querySelectorAll('.clients__img');
+const mainImg = document.querySelector('.clients__main-img');
+const activeQuote = document.querySelector('.clients__quote');
+
+const changeQuote = function () {
+    const activeImage = this;
+
+    mainImg.classList.add('active');
+    activeQuote.classList.add('active');
+
+    setTimeout(() => {
+        mainImg.src = activeImage.getAttribute('src');
+        quotes.forEach(quote => {
+            if (quote.imgSrc === activeImage.getAttribute('src')) {
+                activeQuote.innerHTML = `${quote.text}
+                <cite class="clients__quote-author">
+                ${quote.author}
+                </cite>`;
+            }
+        });
+    }, 200);
+
+    setTimeout(() => {
+        mainImg.classList.remove('active');
+        activeQuote.classList.remove('active');
+    }, 400);
+
+
+    // changeThumbnail
+    thumbnails.forEach(thumbnail => {
+        if (thumbnail.parentNode.classList.contains('active')) {
+            thumbnail.parentNode.classList.remove('active');
+        }
+
+        if (thumbnail.getAttribute('src') === activeImage.getAttribute('src')) {
+            thumbnail.parentNode.classList.add('active');
+        }
+    });
+}
+
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', changeQuote);
+});

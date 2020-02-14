@@ -20,6 +20,7 @@
     box-shadow: 0 0 20px rgba(0,0,0,.3)
     overflow: hidden
     transform: rotate(45deg)
+    background-color: $white
 
 .clients__main-img
     position: absolute
@@ -27,6 +28,14 @@
     top: -25%
     left: -25%
     transform: rotate(-45deg)
+    &.active
+        animation: switch .4s
+
+@keyframes switch
+    50%
+        opacity: 0
+    100%
+        opacity: 1
 
 .clients__quotes-wrapper
     position: relative
@@ -39,6 +48,9 @@
     font-style: italic
     text-align: center
     margin: 40px 0
+    height: 150px
+    &.active
+        animation: switch .4s
     &::before
         position: absolute
         top: -2em
