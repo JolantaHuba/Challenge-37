@@ -1722,6 +1722,9 @@ ul, ol {
 }
 
 @media (min-width: 1024px) {
+  .contact {
+    padding: 70px 7% 50px;
+  }
   .contact__square {
     display: block;
     position: absolute;
@@ -1733,10 +1736,16 @@ ul, ol {
     max-height: 205px;
   }
   .contact__item {
-    margin: 30px 0 50px;
+    margin: 30px 0 80px;
   }
   .contact__social-link {
+    font-size: 1.5rem;
     margin-right: 3%;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+  }
+  .contact__social-link:hover {
+    color: #bc2e3a;
   }
   .contact__footer::before {
     width: 50%;
@@ -1744,8 +1753,14 @@ ul, ol {
 }
 
 @media (min-width: 1260px) {
+  .contact {
+    padding: 100px 12% 60px;
+  }
   .contact__icon {
     margin: 0 40px;
+  }
+  .contact__icon--bigger {
+    width: 50px;
   }
   .contact__info {
     font-size: 1.2rem;

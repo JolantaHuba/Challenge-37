@@ -90,6 +90,8 @@
             transform: translateX(-50%)
 
 @media (min-width: 1024px)
+    .contact
+        padding: 70px 7% 50px
 
     .contact__square
         display: block
@@ -102,10 +104,14 @@
         max-height: 205px
 
     .contact__item
-        margin: 30px 0 50px
+        margin: 30px 0 80px
 
     .contact__social-link
+        font-size: 1.5rem
         margin-right: 3%
+        transition: color .3s
+        &:hover
+            color: $primary-color
 
     .contact__footer
         &::before
@@ -113,8 +119,14 @@
 
 @media (min-width: 1260px)
 
+    .contact
+        padding: 100px 12% 60px
+
     .contact__icon
         margin: 0 40px
+
+    .contact__icon--bigger
+        width: 50px
 
     .contact__info
         font-size: 1.2rem
