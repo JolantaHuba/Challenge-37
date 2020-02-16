@@ -1,3 +1,120 @@
 .contact
-    background-color: $section-color
-    height: 50vh
+    position: relative
+    background-image: url('../images/contact_bg.jpg')
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    padding: 50px 7%
+    overflow: hidden
+
+.contact__heading
+    color: #9f9f9f
+    text-align: center
+
+.contact__items-wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.contact__item
+    width: 65%
+    display: flex
+    align-items: center
+    margin-bottom: 30px
+
+.contact__icon
+    margin: 0 20px
+
+.contact__info
+    font-family: 'Open Sans'
+    color: $white
+
+.contact__name
+    display: block
+    font-weight: 700
+    font-size: 1em
+    margin-bottom: 3%
+
+.contact__text
+    display: block
+    font-size: 0.85em
+
+.contact__social-wrapper
+    text-align: center
+    margin-top: 20px
+
+.contact__social-link
+    font-size: 1.2rem
+    color: $white
+    margin-right: 5%
+    &:last-child
+        margin-right: 0
+
+.contact__footer
+    position: relative
+    color: $white
+    font-family: 'Open Sans'
+    font-size: 0.85em
+    text-align: center
+    margin-top: 20px
+    padding-top: 20px
+    &::before
+        position: absolute
+        content: ''
+        width: 100%
+        height: 1px
+        top: 0
+        left: 0
+        background-color: #9f9f9f
+
+.contact__square
+    display: none
+
+@media (min-width: 530px)
+    .contact__item
+        width: 40%
+
+@media (min-width: 730px)
+    .contact__items-wrapper
+        flex-direction: row
+        justify-content: space-around
+        align-items: center
+    
+    .contact__item
+        width: auto
+
+    .contact__footer
+        &::before
+            width: 65%
+            left: 50%
+            transform: translateX(-50%)
+
+@media (min-width: 1024px)
+
+    .contact__square
+        display: block
+        position: absolute
+        width: 20vw
+        height: 20vw
+        top: 105%
+        left: 93%
+        max-width: 205px
+        max-height: 205px
+
+    .contact__item
+        margin: 30px 0 50px
+
+    .contact__social-link
+        margin-right: 3%
+
+    .contact__footer
+        &::before
+            width: 50%
+
+@media (min-width: 1260px)
+
+    .contact__icon
+        margin: 0 40px
+
+    .contact__info
+        font-size: 1.2rem
