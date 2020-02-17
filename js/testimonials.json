@@ -1,0 +1,19 @@
+[{
+        "author": "Jessica Snow",
+        "author_job": "Company CEO",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic, id sunt eveniet at accusamus rerum autem unde.",
+        "imgSrc": "images/jessica_snow.jpg"
+    },
+    {
+        "author": "John Snow",
+        "author_job": "Company CTO",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic.",
+        "imgSrc": "images/john_snow.jpg"
+    },
+    {
+        "author": "Emily Smith",
+        "author_job": "Designer",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas praesentium magnam assumenda quae ipsa illo hic, id sunt eveniet at accusamus rerum autem unde. Quas praesentium magnam assumenda quae.",
+        "imgSrc": "images/emily_smith.jpg"
+    }
+]

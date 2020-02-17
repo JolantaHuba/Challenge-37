@@ -1457,7 +1457,7 @@ ul, ol {
   border-color: #bc2e3a;
 }
 
-.clients__img {
+.clients__small-img {
   position: absolute;
   width: 150%;
   top: -25%;
