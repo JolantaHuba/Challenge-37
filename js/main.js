@@ -27,6 +27,65 @@ navOverlay.addEventListener('click', hideMenu);
 navList.addEventListener('click', hideMenu);
 document.addEventListener('scroll', scrollMenu);
 
+//current section in menu
+const home = document.querySelector('.home')
+const about = document.querySelector('.about');
+const services = document.querySelector('.services');
+const process = document.querySelector('.process');
+const team = document.querySelector('.team');
+const clients = document.querySelector('.clients');
+const contact = document.querySelector('.contact');
+
+const navLinks = document.querySelectorAll('.nav__link');
+
+const showCurrentSection = () => {
+    if (window.scrollY < 100) {
+        navLinks.forEach(navLink => {
+            navLink.classList.remove('current');
+        });
+    } else if (window.scrollY < home.offsetHeight) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'home') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=home]').classList.add('current');
+    } else if (window.scrollY < about.offsetTop + about.offsetHeight - 10) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'about') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=about]').classList.add('current');
+    } else if (window.scrollY < services.offsetTop + services.offsetHeight - 10) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'services') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=services]').classList.add('current');
+    } else if (window.scrollY < process.offsetTop + process.offsetHeight - 10) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'process') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=process]').classList.add('current');
+    } else if (window.scrollY < team.offsetTop + team.offsetHeight - 10) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'team') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=team]').classList.add('current');
+    } else if (window.scrollY < clients.offsetTop + clients.offsetHeight - 10) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'clients') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=clients]').classList.add('current');
+    }
+
+    if (window.scrollY > document.body.clientHeight - window.innerHeight - 100) {
+        navLinks.forEach(navLink => {
+            if (navLink.dataset.name !== 'contact') navLink.classList.remove('current');
+        });
+        document.querySelector('[data-link=contact]').classList.add('current');
+    }
+
+}
+
+window.addEventListener('scroll', showCurrentSection)
+
 //carousel
 
 const prevArrow = document.querySelector('.team__prev-arrow');

@@ -133,7 +133,7 @@ ul, ol {
 .wrapper {
   max-width: 1600px;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .nav {
@@ -357,6 +357,9 @@ ul, ol {
   .nav.scrolled .nav__link {
     font-size: .9rem;
   }
+  .nav.scrolled .nav__link::after {
+    background-color: #bc2e3a;
+  }
   .nav.scrolled .nav__icon {
     font-size: 1rem;
   }
@@ -387,11 +390,47 @@ ul, ol {
     transition: transform 0s;
     transition: transform 0s, -webkit-transform 0s;
   }
+  .nav__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
   .nav__link {
+    position: relative;
     line-height: normal;
     font-size: 1rem;
     -webkit-transition: font-size .4s;
     transition: font-size .4s;
+    padding-bottom: 4px;
+    overflow: hidden;
+  }
+  .nav__link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    -webkit-transform: translateX(-110%);
+            transform: translateX(-110%);
+    border-radius: 50px;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+  }
+  .nav__link:hover::after {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .nav__link.current::after {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   .nav__icons {
     display: -webkit-box;
@@ -406,13 +445,13 @@ ul, ol {
   }
   .nav__icon {
     font-size: 1.1rem;
-    color: #ffffff;
     margin-right: 15px;
+    border: none;
+    color: #ffffff;
+    background-color: transparent;
     cursor: pointer;
     -webkit-transition: font-size .4s;
     transition: font-size .4s;
-    border: none;
-    background-color: transparent;
   }
 }
 
