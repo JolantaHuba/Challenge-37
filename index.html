@@ -12,12 +12,13 @@
 
 <body>
     <div class="wrapper">
+        <!-- NAV -->
         <nav class="nav">
             <a href="#home" class="nav__logo">Agency</a>
-            <button class="nav__burger" aria-label="menu">
-                <div class="nav__burger-line"></div>
-                <div class="nav__burger-line"></div>
-                <div class="nav__burger-line"></div>
+            <button class="nav__burger" aria-label="Menu">
+                <span class="nav__burger-line"></span>
+                <span class="nav__burger-line"></span>
+                <span class="nav__burger-line"></span>
             </button>
             <ul class="nav__list">
                 <li class="nav__logo nav__item--logo">Agency</li>
@@ -240,11 +241,11 @@
 
                 <div class="team__carousel-item item--hidden">
                     <div class="team__img-wrapper">
-                        <img class="team__img" src="images/tiya_brown.jpg.jpg" alt="Tiya Brown photo">
+                        <img class="team__img" src="images/tiya_brown.jpg" alt="Tiya Brown photo">
                     </div>
                     <div class="team__desc-wrapper">
                         <div class="team__person-name-wrapper">
-                            <h3 class="team__person-name">Jimmy Doe</h3>
+                            <h3 class="team__person-name">Tiya Brown</h3>
                         </div>
                         <div class="team__person-job-wrapper">
                             <span class="team__person-job">Designer</span>
@@ -274,16 +275,16 @@
                         <cite class="clients__quote-author">Jessica Snow, Company CEO</cite>
                     </blockquote>
                     <div class="clients__thumbnails">
-                        <div class="clients__img-wrapper active">
+                        <div role="button" class="clients__img-wrapper active" aria-pressed="true">
                             <img data-author="Jessica Snow" src="images/jessica_snow.jpg" alt="Jessica Snow photo"
                                 class="clients__small-img">
                         </div>
-                        <div class="clients__img-wrapper">
+                        <div role="button" class="clients__img-wrapper" aria-pressed="false">
                             <img data-author="John Snow" src="images/john_snow.jpg" alt="John Snow photo"
                                 class="clients__small-img">
                         </div>
-                        <div class="clients__img-wrapper">
-                            <img data-author="Emily Smith" src="images/emily_smith.jpg" alt="Person 1 photo"
+                        <div role="button" class="clients__img-wrapper" aria-pressed="false">
+                            <img data-author="Emily Smith" src="images/emily_smith.jpg" alt="Emily Smith photo"
                                 class="clients__small-img">
                         </div>
                     </div>
@@ -292,34 +293,34 @@
         </section>
 
         <!-- CONTACT -->
-        <section class="contact" id="contact">
+        <footer class="contact" id="contact">
             <div class="contact__square square"></div>
             <h2 class="contact__heading heading">Get in touch</h2>
             <div class="contact__items-wrapper">
-                <div class="contact__item">
+                <address class="contact__item">
                     <img src="images/icons/envelope.png" alt="" class="contact__icon contact__icon--bigger">
-                    <adress class="contact__info">
+                    <div class="contact__info">
                         <span class="contact__name">Email</span>
                         <span class="contact__text">agency@email.com</span>
                         <span class="contact__text">agency@email.com</span>
-                    </adress>
-                </div>
-                <div class="contact__item">
+                    </div>
+                </address>
+                <address class="contact__item">
                     <img src="images/icons/mobile.png" alt="" class="contact__icon">
-                    <adress class="contact__info">
+                    <div class="contact__info">
                         <span class="contact__name">Phone</span>
                         <span class="contact__text">+123 456 7890</span>
                         <span class="contact__text">+123 456 7890</span>
-                    </adress>
-                </div>
-                <div class="contact__item">
+                    </div>
+                </address>
+                <address class="contact__item">
                     <img src="images/icons/pin.png" alt="" class="contact__icon contact__icon--bigger">
-                    <adress class="contact__info">
+                    <div class="contact__info">
                         <span class="contact__name">Office</span>
                         <span class="contact__text">123, Main Road, New City,</span>
                         <span class="contact__text">My Country 123456</span>
-                    </adress>
-                </div>
+                    </div>
+                </address>
             </div>
             <div class="contact__social-wrapper">
                 <a href="https://www.facebook.com" class="contact__social-link"><span class="fab fa-facebook-f"></span></a>
@@ -331,7 +332,7 @@
                 <a href="https://www.deviantart.com" class="contact__social-link"><span class="fab fa-deviantart"></span></a>
             </div>
             <p class="contact__footer">Copyright &copy; 2017. PSDFreebies.com | Coded by Jolanta Huba</p>
-        </section>
+        </footer>
     </div>
 
     <script src="js/main.js"></script>

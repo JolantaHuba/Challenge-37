@@ -1225,7 +1225,7 @@ ul, ol {
   position: absolute;
   top: 90%;
   left: 42%;
-  padding: 0 12%;
+  padding: 0 10%;
   background-color: #bc2e3a;
   -webkit-transform: skew(35deg) translateX(-50%);
           transform: skew(35deg) translateX(-50%);
@@ -1678,6 +1678,7 @@ ul, ol {
 .contact__info {
   font-family: 'Open Sans';
   color: #ffffff;
+  font-style: normal;
 }
 
 .contact__name {

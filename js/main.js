@@ -131,7 +131,7 @@ nextArrow.addEventListener('click', changeSlide);
 
 // testimonials
 
-const thumbnails = document.querySelectorAll('.clients__small-img');
+const thumbnails = document.querySelectorAll('.clients__img-wrapper');
 const mainImg = document.querySelector('.clients__main-img');
 const activeQuote = document.querySelector('.clients__quote');
 let quotes = null; // loaded from testimonials.json using ajax
@@ -150,18 +150,20 @@ const loadTestimonials = () => {
 
 const changeThumbnail = (activeImage) => {
     thumbnails.forEach(thumbnail => {
-        if (thumbnail.parentNode.classList.contains('active')) {
-            thumbnail.parentNode.classList.remove('active');
+        if (thumbnail.classList.contains('active')) {
+            thumbnail.classList.remove('active');
+            thumbnail.setAttribute('aria-pressed', 'false');
         }
 
-        if (thumbnail.dataset.author === activeImage.dataset.author) {
-            thumbnail.parentNode.classList.add('active');
+        if (thumbnail.firstElementChild.dataset.author === activeImage.dataset.author) {
+            thumbnail.classList.add('active');
+            thumbnail.setAttribute('aria-pressed', 'true');
         }
     });
 }
 
 const changeQuote = function () {
-    const activeImage = this;
+    const activeImage = this.firstElementChild;
 
     mainImg.classList.add('active');
     activeQuote.classList.add('active');
