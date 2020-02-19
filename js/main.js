@@ -27,62 +27,31 @@ navOverlay.addEventListener('click', hideMenu);
 navList.addEventListener('click', hideMenu);
 document.addEventListener('scroll', scrollMenu);
 
-//current section in menu
-const home = document.querySelector('.home');
-const about = document.querySelector('.about');
-const services = document.querySelector('.services');
-const process = document.querySelector('.process');
-const team = document.querySelector('.team');
-const clients = document.querySelector('.clients');
-const contact = document.querySelector('.contact');
-const navLinks = document.querySelectorAll('.nav__link');
+
+const navLinks = [...document.querySelectorAll('.nav__link')];
 
 
 const showCurrentSection = () => {
     const scrollPos = window.scrollY;
 
-    if (scrollPos < 100) {
-        navLinks.forEach(navLink => {
-            navLink.classList.remove('current');
-        });
-    } else if (scrollPos < home.offsetHeight) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'home') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=home]').classList.add('current');
-    } else if (scrollPos < about.offsetTop + about.offsetHeight - 10) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'about') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=about]').classList.add('current');
-    } else if (scrollPos < services.offsetTop + services.offsetHeight - 10) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'services') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=services]').classList.add('current');
-    } else if (scrollPos < process.offsetTop + process.offsetHeight - 10) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'process') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=process]').classList.add('current');
-    } else if (scrollPos < team.offsetTop + team.offsetHeight - 10) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'team') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=team]').classList.add('current');
-    } else if (scrollPos < clients.offsetTop + clients.offsetHeight - 10) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'clients') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=clients]').classList.add('current');
-    }
+    navLinks.forEach(link => {
+        let section = document.querySelector(link.hash);
 
-    if (scrollPos > document.body.clientHeight - window.innerHeight - 100) {
-        navLinks.forEach(navLink => {
-            if (navLink.dataset.name !== 'contact') navLink.classList.remove('current');
-        });
-        document.querySelector('[data-link=contact]').classList.add('current');
-    }
+        /* Scroll doesn't reach actual section after clicking it in nav. Move change point upper (-10), section is reaching faster */
+        if (scrollPos < 100) {
+            link.classList.remove('current');
+        } else if (scrollPos >= section.offsetTop - 10 && scrollPos < section.offsetTop + section.offsetHeight - 10) {
+            link.classList.add('current');
+        } else {
+            link.classList.remove('current');
+        }
+
+        // If last section < 100vh
+        if (scrollPos >= document.body.clientHeight - window.innerHeight - 50) {
+            navLinks[navLinks.length - 2].classList.remove('current');
+            navLinks[navLinks.length - 1].classList.add('current')
+        }
+    });
 }
 
 window.addEventListener('scroll', showCurrentSection)
