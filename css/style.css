@@ -688,6 +688,7 @@ ul, ol {
   height: 80vw;
   top: 0;
   left: 130%;
+  z-index: -1;
 }
 
 .about__img {
@@ -707,6 +708,7 @@ ul, ol {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    max-width: 50%;
   }
   .about__text {
     text-align: left;
@@ -716,7 +718,6 @@ ul, ol {
   .about__img {
     display: block;
     max-width: 50%;
-    z-index: 1;
   }
   .about__square {
     left: 100%;
