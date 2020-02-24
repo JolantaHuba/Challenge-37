@@ -12,7 +12,7 @@ const toggleMenu = () => {
 }
 
 const hideMenu = () => {
-    const activeMenuElements = document.querySelectorAll('nav .active');
+    const activeMenuElements = document.querySelectorAll('.nav .active');
     activeMenuElements.forEach(element => element.classList.remove('active'));
 }
 
@@ -60,7 +60,7 @@ window.addEventListener('scroll', showCurrentSection)
 
 const prevArrow = document.querySelector('.team__prev-arrow');
 const nextArrow = document.querySelector('.team__next-arrow');
-let carouselItems = [...document.querySelectorAll('.team__carousel-item')];
+let carouselItems = document.querySelectorAll('.team__carousel-item');
 
 const changeSlide = function () {
     const newCarousel = [];
@@ -79,17 +79,19 @@ const changeSlide = function () {
         }
     }
 
-    carouselItems = newCarousel;
-
-    carouselItems.forEach((item, index) => {
+    newCarousel.forEach((item, index) => {
         if (index == 0) {
             item.className = 'team__carousel-item item--left';
         } else if (index == 1) {
             item.className = 'team__carousel-item item--middle';
         } else if (index == 2) {
             item.className = 'team__carousel-item item--right';
-        } else item.className = 'team__carousel-item item--hidden';
+        } else {
+            item.className = 'team__carousel-item item--hidden';
+        }
     });
+
+    carouselItems = newCarousel;
 }
 
 carouselItems.forEach(item => {

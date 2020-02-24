@@ -1135,8 +1135,10 @@ ul, ol {
 
 .team__carousel-item {
   position: absolute;
-  -webkit-transition: .6s;
-  transition: .6s;
+  -webkit-transition: opacity .6s, -webkit-transform .6s;
+  transition: opacity .6s, -webkit-transform .6s;
+  transition: transform .6s, opacity .6s;
+  transition: transform .6s, opacity .6s, -webkit-transform .6s;
 }
 
 .item--middle {
