@@ -1,9 +1,11 @@
 "use strict"
-//menu
+
+/* --------- Menu ---------- */
 const nav = document.querySelector('.nav');
 const burgerBtn = document.querySelector('.nav__burger');
 const navList = document.querySelector('.nav__list');
 const navOverlay = document.querySelector('.nav__overlay');
+const navLinks = document.querySelectorAll('.nav__link');
 
 const toggleMenu = () => {
     burgerBtn.classList.toggle('active');
@@ -22,76 +24,94 @@ const scrollMenu = () => {
     } else nav.classList.remove('scrolled');
 }
 
-burgerBtn.addEventListener('click', toggleMenu);
-navOverlay.addEventListener('click', hideMenu);
-navList.addEventListener('click', hideMenu);
-document.addEventListener('scroll', scrollMenu);
-
-
-const navLinks = [...document.querySelectorAll('.nav__link')];
-
-
 const showCurrentSection = () => {
     const scrollPos = window.scrollY;
 
     navLinks.forEach(link => {
         let section = document.querySelector(link.hash);
 
-        /* Scroll doesn't reach actual section after clicking it in nav. Move change point upper (-10), section is reaching faster */
+        /* Scroll doesn't reach actual section after clicking it in nav. Move change point up (section.offsetTop - 10) */
         if (scrollPos < 100) {
             link.classList.remove('current');
-        } else if (scrollPos >= section.offsetTop - 10 && scrollPos < section.offsetTop + section.offsetHeight - 10) {
+        } else if (
+            scrollPos >= section.offsetTop - 10 &&
+            scrollPos < section.offsetTop + section.offsetHeight - 10
+        ) {
             link.classList.add('current');
         } else {
             link.classList.remove('current');
         }
 
-        // If last section < 100vh
+        /* If last section < 100vh */
         if (scrollPos >= document.body.clientHeight - window.innerHeight - 50) {
             navLinks[navLinks.length - 2].classList.remove('current');
-            navLinks[navLinks.length - 1].classList.add('current')
+            navLinks[navLinks.length - 1].classList.add('current');
         }
     });
 }
 
-window.addEventListener('scroll', showCurrentSection)
+burgerBtn.addEventListener('click', toggleMenu);
+navOverlay.addEventListener('click', hideMenu);
+navList.addEventListener('click', hideMenu);
+document.addEventListener('scroll', scrollMenu);
+window.addEventListener('scroll', showCurrentSection);
 
-//carousel
+/* --------- Owl carousel ---------- */
 
 const prevArrow = document.querySelector('.team__prev-arrow');
 const nextArrow = document.querySelector('.team__next-arrow');
 let carouselItems = document.querySelectorAll('.team__carousel-item');
 
-const changeSlide = function () {
-    const newCarousel = [];
+const currView = {
+    left: 0,
+    middle: 1,
+    right: 2,
+}
 
-    if (this.classList.contains('item--left') || this.classList.contains('team__prev-arrow')) {
-        for (let i = 0; i < carouselItems.length; i++) {
-            if (i > 0) {
-                newCarousel[i] = carouselItems[i - 1];
-            } else newCarousel[i] = carouselItems[carouselItems.length - 1];
-        }
-    } else {
-        for (let i = 0; i < carouselItems.length; i++) {
-            if (i < carouselItems.length - 1) {
-                newCarousel[i] = carouselItems[i + 1];
-            } else newCarousel[i] = carouselItems[0];
-        }
+function changeSlide() {
+
+    isPrev(this) ? goPrevSlide() : goNextSlide();
+    renderSlides();
+
+
+    function isPrev(item) {
+        return (
+            item.classList.contains('item--left') ||
+            item.classList.contains('team__prev-arrow')
+        );
     }
 
-    newCarousel.forEach((item, index) => {
-        if (index == 0) {
-            item.className = 'team__carousel-item item--left';
-        } else if (index == 1) {
-            item.className = 'team__carousel-item item--middle';
-        } else if (index == 2) {
-            item.className = 'team__carousel-item item--right';
-        } else {
-            item.className = 'team__carousel-item item--hidden';
-        }
-    });
+    function goPrevSlide() {
+        currView.right = currView.middle;
+        currView.middle = currView.left;
+        currView.left > 0 ?
+            currView.left-- : currView.left = carouselItems.length - 1;
+    }
 
-    carouselItems = newCarousel;
+    function goNextSlide() {
+        currView.left = currView.middle;
+        currView.middle = currView.right;
+        currView.right < carouselItems.length - 1 ?
+            currView.right++ : currView.right = 0;
+    }
+
+    function renderSlides() {
+        carouselItems.forEach((item, index) => {
+            switch (index) {
+                case currView.left:
+                    item.className = 'team__carousel-item item--left';
+                    break;
+                case currView.middle:
+                    item.className = 'team__carousel-item item--middle';
+                    break;
+                case currView.right:
+                    item.className = 'team__carousel-item item--right';
+                    break;
+                default:
+                    item.className = 'team__carousel-item item--hidden';
+            }
+        });
+    }
 }
 
 carouselItems.forEach(item => {
@@ -100,14 +120,14 @@ carouselItems.forEach(item => {
 prevArrow.addEventListener('click', changeSlide);
 nextArrow.addEventListener('click', changeSlide);
 
-// testimonials
+/* --------- Testimonials ---------- */
 
 const thumbnails = document.querySelectorAll('.clients__img-wrapper');
 const mainImg = document.querySelector('.clients__main-img');
 const activeQuote = document.querySelector('.clients__quote');
-let quotes = null; // loaded from testimonials.json using ajax
+let quotes = null;
 
-const loadTestimonials = () => {
+function loadQuotes() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'js/testimonials.json', true);
     xhr.onload = () => {
@@ -119,7 +139,7 @@ const loadTestimonials = () => {
     xhr.send();
 }
 
-const changeThumbnail = (activeImage) => {
+function changeThumbnail(activeImage) {
     thumbnails.forEach(thumbnail => {
         if (thumbnail.classList.contains('active')) {
             thumbnail.classList.remove('active');
@@ -133,14 +153,13 @@ const changeThumbnail = (activeImage) => {
     });
 }
 
-const changeQuote = function () {
+function changeQuote() {
     const activeImage = this.firstElementChild;
 
     mainImg.classList.add('active');
     activeQuote.classList.add('active');
 
-    // Load quotes from JSON file
-    loadTestimonials();
+    loadQuotes();
 
     setTimeout(() => {
         quotes.forEach(quote => {
@@ -159,10 +178,8 @@ const changeQuote = function () {
         activeQuote.classList.remove('active');
     }, 400);
 
-    // changeThumbnail
     changeThumbnail(activeImage);
 }
-
 
 thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('click', changeQuote);
